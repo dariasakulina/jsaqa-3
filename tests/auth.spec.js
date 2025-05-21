@@ -5,13 +5,13 @@ test("Успешная авторизация", async ({ page }) => {
   await page.goto("https://netology.ru");
   await page.click("text=Войти");
 
-  const emailInput = page.locator('input[name="email"]');
-  const passwordInput = page.locator('input[name="password"]');
+  const emailInput = page.locator('input[name="email"][placeholder="Email"]');
+  const passwordInput = page.locator('input[name="password"][placeholder="Пароль"]');
 
-  await expect(emailInput).toBeVisible();
+  await expect(emailInput).toBeVisible({ timeout: 10000 });
   await emailInput.fill(email);
 
-  await expect(passwordInput).toBeVisible();
+  await expect(passwordInput).toBeVisible({ timeout: 10000 });
   await passwordInput.fill(password);
 
   await page.fill('input[type="email"]', email);
@@ -20,7 +20,7 @@ test("Успешная авторизация", async ({ page }) => {
   await page.click('button:has-text("Войти")');
 
   await expect(page.locator("h2", { hasText: "Моё обучение" })).toBeVisible({
-    timeout: 10000,
+    timeout: 30000,
   });
 });
 
@@ -31,10 +31,10 @@ test("Неуспешная авторизация", async ({ page }) => {
   const emailInput = page.locator('input[name="email"]');
   const passwordInput = page.locator('input[name="password"]');
 
-  await expect(emailInput).toBeVisible();
+  await expect(emailInput).toBeVisible({ timeout: 10000 });
   await emailInput.fill(email);
 
-  await expect(passwordInput).toBeVisible();
+  await expect(passwordInput).toBeVisible({ timeout: 10000 });
   await passwordInput.fill(password);
 
   await page.fill('input[type="email"]', "wrong@example.com");

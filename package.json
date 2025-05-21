@@ -2,14 +2,14 @@
   "name": "jsaqa-3",
   "version": "1.0.0",
   "main": "user.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.21",
+    "playwright": "^1.52.0"
   }
 }
